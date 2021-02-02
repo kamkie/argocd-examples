@@ -14,7 +14,7 @@ spec:
         app: guestbook-ui
     spec:
       containers:
-      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
-        name: guestbook-ui
+      - image: image-registry.openshift-image-registry.svc:5000/example1/nginx-example@sha256:4f3b6249c3d26ee111d7a6f2b705cd48f6d84dd9b12002524384783f22f178e9
+        name: nginx-example
         ports:
-        - containerPort: 80
+        - containerPort: 8080
