@@ -14,7 +14,7 @@ spec:
         app: guestbook-ui
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/example1/nginx-example@sha256:4f3b6249c3d26ee111d7a6f2b705cd48f6d84dd9b12002524384783f22f178e9
+      - image: image-registry.openshift-image-registry.svc:5000/example1/nginx-example@sha256:90e1befdddda55f2c7396ecb0fe5e5babfa8a00f22abe9601f1d1985541cf22e
         name: nginx-example
         ports:
         - containerPort: 8080
