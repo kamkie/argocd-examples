@@ -1,7 +1,7 @@
 kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
-  name: guestbook-ui.jsonnet
+  name: guestbook-ui-jsonnet
   namespace: example1
   labels:
     app.kubernetes.io/instance: aaaa
