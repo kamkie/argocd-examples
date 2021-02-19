@@ -41,7 +41,6 @@ local params = import 'params.libsonnet';
                }
             },
             "spec": {
-
                "containers": [
                   {
                      "image": params.image,
@@ -50,12 +49,13 @@ local params = import 'params.libsonnet';
                      {
                         "containerPort": params.containerPort
                      }
-                     ]
+                     ],
                   }
-               ],
-               "securityContext" {
-                       "runAsUser": 0
-               }
+                ],
+                               securityContext: {
+                                       runAsUser: 0
+                               }
+
             }
          }
       }
