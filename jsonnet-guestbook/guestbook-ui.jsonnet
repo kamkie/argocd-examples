@@ -49,10 +49,9 @@ local params = import 'params.libsonnet';
                      {
                         "containerPort": params.containerPort
                      }
-                     ],
+                     ]
                   }
-                ]
-
+               ]
             }
          }
       }
