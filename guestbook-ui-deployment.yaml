@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: guestbook-ui
 spec:
-  replicas: 1
+  replicas: 2
   revisionHistoryLimit: 3
   selector:
     matchLabels:
@@ -14,7 +14,7 @@ spec:
         app: guestbook-ui
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/example1/nginx-example@sha256:90e1befdddda55f2c7396ecb0fe5e5babfa8a00f22abe9601f1d1985541cf22e
+      - image: image-registry.openshift-image-registry.svc:5000/example1/nginx-example@sha256:8b145a0967db148cac2b996d69fd2415df8f0004bd4e9be6cccc229879e270cc
         name: nginx-example
         ports:
         - containerPort: 8080
