@@ -43,7 +43,7 @@ local params = import 'params.libsonnet';
             "spec": {
             "securityContext" {
                     "runAsUser": 0
-            }
+            },
                "containers": [
                   {
                      "image": params.image,
