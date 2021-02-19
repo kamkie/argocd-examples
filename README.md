@@ -1,3 +1,5 @@
 # argocd-examples
+----------------------
 
 some examples
+
