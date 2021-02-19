@@ -51,10 +51,7 @@ local params = import 'params.libsonnet';
                      }
                      ],
                   }
-                ],
-                               securityContext: {
-                                       runAsUser: 0
-                               }
+                ]
 
             }
          }
