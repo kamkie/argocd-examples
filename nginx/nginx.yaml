@@ -1,0 +1,79 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  name: nginx-example
+  namespace: example1
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    name: nginx-example
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        name: nginx-example
+      name: nginx-example
+    spec:
+      containers:
+        - image: >-
+            image-registry.openshift-image-registry.svc:5000/example1/nginx-example@sha256:8b145a0967db148cac2b996d69fd2415df8f0004bd4e9be6cccc229879e270cc
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 3
+          name: nginx-example
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 3
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 3
+          resources:
+            limits:
+              memory: 512Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+  test: false
+  triggers:
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+          - nginx-example
+        from:
+          kind: ImageStreamTag
+          name: 'nginx-example:latest'
+          namespace: example1
+        lastTriggeredImage: >-
+          image-registry.openshift-image-registry.svc:5000/example1/nginx-example@sha256:8b145a0967db148cac2b996d69fd2415df8f0004bd4e9be6cccc229879e270cc
+      type: ImageChange
+    - type: ConfigChange
