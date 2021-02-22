@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: example2
-  namespace: example2
+  namespace: example1
 spec:
   destination:
     namespace: example2
