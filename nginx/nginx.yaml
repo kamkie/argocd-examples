@@ -4,7 +4,7 @@ metadata:
   name: nginx-example
   namespace: example1
 spec:
-  replicas: 1
+  replicas: 2
   revisionHistoryLimit: 10
   selector:
     name: nginx-example
