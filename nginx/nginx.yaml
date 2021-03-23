@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - image: >-
-            image-registry.openshift-image-registry.svc:5000/example1/nginx-example@sha256:8b145a0967db148cac2b996d69fd2415df8f0004bd4e9be6cccc229879e270cc
+            image-registry.openshift-image-registry.svc:5000/example1/nginx-example:latest
           imagePullPolicy: IfNotPresent
           livenessProbe:
             failureThreshold: 3
@@ -73,7 +73,5 @@ spec:
           kind: ImageStreamTag
           name: 'nginx-example:latest'
           namespace: example1
-        lastTriggeredImage: >-
-          image-registry.openshift-image-registry.svc:5000/example1/nginx-example@sha256:8b145a0967db148cac2b996d69fd2415df8f0004bd4e9be6cccc229879e270cc
       type: ImageChange
     - type: ConfigChange
