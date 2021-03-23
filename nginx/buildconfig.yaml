@@ -26,8 +26,4 @@ spec:
     type: Source
   successfulBuildsHistoryLimit: 5
   triggers:
-    - imageChange:
-        lastTriggeredImageID: >-
-          image-registry.openshift-image-registry.svc:5000/openshift/nginx@sha256:e9871d900f62897102ac8008c8392d8d76cc6862ee5bda14234d73cdb6da200a
-      type: ImageChange
     - type: ConfigChange
