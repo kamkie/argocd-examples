@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - image: >-
-            image-registry.openshift-image-registry.svc:5000/example1/nginx-example:latest
+            image-registry.openshift-image-registry.svc:5000/example1/nginx-example@sha256:28765a3fdc1f113047d897f0dc4bc673563bbd07855f83e33919c5d062eb74e4
           imagePullPolicy: IfNotPresent
           livenessProbe:
             failureThreshold: 3
