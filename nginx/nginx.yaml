@@ -25,6 +25,7 @@ spec:
         name: nginx-example
       name: nginx-example
     spec:
+      replicas: 1
       containers:
         - image: >-
             image-registry.openshift-image-registry.svc:5000/example1/nginx-example@sha256:94ccfff395191694c0360a27cdd32a12a6e62552223268280a7fd4c75712f4a0
